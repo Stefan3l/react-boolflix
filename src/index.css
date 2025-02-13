@@ -1,3 +1,125 @@
+@import "tailwindcss";
+
 .star-solid {
   color: yellow;
+}
+
+.active {
+  @apply text-red-600;
+}
+
+.backface-hidden {
+  backface-visibility: hidden; /* Ascunde partea opusă */
+}
+.relative:hover > .absolute:first-child {
+  transform: rotateY(180deg); /* Rotește fața cardului */
+}
+.relative:hover > .absolute:last-child {
+  transform: rotateY(0deg); /* Arată spatele cardului */
+}
+
+.ms-shadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.ms-card-back {
+  height: 100%;
+  width: 100%;
+  background-color: #2d2d2d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ms-card-back p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+
+.ms-logo-effect {
+  font-size: 1.5rem;
+  color: red;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
+  text-align: center;
+  position: relative;
+  transform: skew(5deg);
+}
+
+.ms-title-effect {
+  font-size: 4rem;
+  color: red;
+  text-align: center;
+  position: relative;
+  transform: skew(5deg);
+}
+
+.ms-title-effect::after {
+  content: "BoolFlix";
+  font-size: 4rem;
+  color: red;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+  transform: scaleY(-1) skew(5deg);
+  opacity: 0.4;
+}
+
+/* -----------------
+  HOME PAGE
+----------------- */
+
+.ms-title {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------
+        PROMO
+----------------- */
+
+.ms-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.ms-marquee-content {
+  display: inline-block;
+  animation: marquee-loop 120s linear infinite;
+}
+
+.ms-marquee-content span {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+@keyframes marquee-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
